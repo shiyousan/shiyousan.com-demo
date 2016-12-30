@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        *{margin:0px;padding:0px;}
+        hr{margin:30px 0;}
+        body{padding:50px;}
+        body>div{width:100%;font-size:20px;}                                             
+    </style>
+</head>
+<body>
+    <p>说明：演示页面中，只有红色文本显示在绿色方块上方才算是正确的使用，否则说明z-index属性失效</p>
+    <p>********************************************************************************</p>
+    <!--***********************************************************************-->                                   
+    <h2>z-index正常使用</h2>
+    <div>
+        <p>作为绿色方块的div其z-index属性是1，而包含红色文字的div元素的z-index属性是999,所以文本会显示在上面</p>
+        <p>这里要注意z-index仅能在定位元素上奏效，既设置了position属性为:absolute、relative、fixed中的一个值,演示中div都设置了position属性。</p>
+    </div>
+    <div style="height: 150px;">                
+        <div style="z-index:1;position:absolute;background-color:#16a085;height:150px;width:150px;"></div>
+        <div style="z-index:999;position: relative;color:#ff0000;">
+            该文本包含在div元素中。。。。。。。。。。。。。。。
+        </div>
+    </div>
+    <hr>
+    <!--***********************************************************************-->
+    <h2>z-index无效情况一，设置z-index属性的元素没有进行定位导致层叠无效</h2>
+    <div>        
+        <p>照常来说红色文字应该显示在图片上面，但是z-index不起效果，红色的文字被作为绿色方块的div层遮盖住</p>
+        <p>主要原因在于包含红色文字的div并没有进行定位，没有设置position，或position为默认值static</p>
+        <p>一旦position为static，表示该标签不受z-index、top、 bottom、 left、right这些定位属性的影响</p>
+    </div>
+    <div style="height: 150px;">
+        <div style="z-index:1;position:absolute;background-color:#16a085;height:150px;width:150px;"></div>
+        <div style="z-index:999;color:#ff0000;">
+            该文本包含在div元素中。。。。。。。。。。。。。。。
+        </div>
+    </div>
+    <hr>
+    <!--***********************************************************************-->
+    <h2>z-index无效情况二，父元素的层叠优先级比其他元素低</h2>
+    <div>
+        <p>虽然包含红色文字的div元素的z-index为999，但是由于其父元素的z-index为-1，所以依然被遮盖住</p>
+        <p>对于层叠元素的优先级对比都是在兄弟元素之间进行的，子元素的优先级并不会影响到父元素与其他兄弟元素之间的优先级关系。</p>
+        <p>这里所指的层叠元素，是指有进行定位并且有设置z-index属性的元素。如果没有进行定位和设置z-index的元素，其最终层叠优先级反而由当前元素的层叠子元素决定</p>                
+    </div>
+    <div style="height: 150px;">
+        <div style="z-index:1;position:absolute;background-color:#16a085;height:150px;width:150px;"></div>
+        <div style="z-index:-1;position:relative;color:#ff0000;">
+            <div style="z-index:999;position:relative;">该文本包含在div元素中。。。。。。。。。。。。。。。</div>            
+        </div>
+    </div>
+    <hr>    
+    <!--***********************************************************************-->
+    <h2>z-index无效情况三，IE6-IE7下父元素没有设置z-index即父元素非层叠元素</h2>
+    <div>
+        <p>这里的情况和上面所说的情况有点关系，涉及到父子层叠元素。</p>
+        <p>红色文字在IE6和IE7下会被绿色方块遮掩（某些版本的IE8也会出现这种情况），但在其他浏览器则能正常展示优先级关系</p>
+        <p>在IE7以下的IE浏览器一定要注意父级元素是否有设置z-index和进行定位</p>
+        <p>在这几个版本的浏览器中，最终决定层叠顺序的是最顶层的父元素，算是一个兼容性问题。</p>
+    </div>
+    <div style="height: 150px;">
+        <div style="z-index:1;position:absolute;background-color:#16a085;height:150px;width:150px;"></div>
+        <div style="position:relative;color:#ff0000;">
+            <div style="z-index:999;position:relative;">该文本包含在div元素中。。。。。。。。。。。。。。。</div>            
+        </div>
+    </div>
+    <hr>    
+    <!--***********************************************************************-->  
+    <h2>z-index无效情况四，IE6下z-index属性受到float浮动属性的影响</h2>
+    <div>
+        <p>此情况我只在IE6中遇到，虽然div元素都设置了z-index，但是不起效果！</p>
+        <p>原因在于IE6中的浮动会干扰到元素的相对定位，导致z-index失效</p>
+        <p>注意！只有在IE6并且元素为相对定位的情况下，float浮动属性才会造成影响！</p>
+        <p>解决方法有三，1、position:relative改为position:absolute；2、去除浮动；3、浮动元素添加 position属性（如relative，absolute等）。</p>        
+    </div>
+    <div style="height: 150px;">
+        <div style="z-index:1;position:absolute;background-color:#16a085;height:150px;width:150px;"></div>
+        <div style="z-index:999;position:relative;color:#ff0000;">
+            <div style="float:left;">该文本包含在div元素中。。。。。。。。。。。。。。。</div>            
+        </div>
+    </div>
+    <hr>
+    <!--***********************************************************************-->          
+    
+    <h2>z-index无效情况五，IE6-IE7下使用inherit属性值进行定位</h2>
+    <div>
+        <p>对于低版本的IE浏览器来说，本身是不支持inherit属性值的，本人也不建议使用此属性值</p>        
+    </div>
+    <div style="height: 150px;">
+        <div style="z-index:1;position:absolute;background-color:#16a085;height:150px;width:150px;"></div>
+        <div style="position:relative;color:#ff0000;">
+            <div style="z-index:999;position:inherit;">该文本包含在div元素中。。。。。。。。。。。。。。。</div>            
+        </div>
+    </div>
+    <hr>
+    <!--***********************************************************************-->
+    <h2>z-index无效情况六，z-index为非法值</h2>
+    <div>
+        <p>z-index只能是整数，所以如果是非法值自然就没有效果</p>        
+    </div>
+    <div style="height: 150px;">
+        <div style="z-index:1;position:absolute;background-color:#16a085;height:150px;width:150px;"></div>
+        <div style="position:relative;z-index:dd;color:#ff0000;">
+            该文本包含在div元素中。。。。。。。。。。。。。。。
+        </div>
+    </div>
+    <hr>
+    <!--***********************************************************************-->    
+</body>
+</html>
