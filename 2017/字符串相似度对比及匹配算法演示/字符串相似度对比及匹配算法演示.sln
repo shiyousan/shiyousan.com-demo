@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "字符串相似度对比及匹配算法演示", "字符串相似度对比及匹配算法演示\字符串相似度对比及匹配算法演示.csproj", "{DDB24A67-B1C4-45AF-8FC1-FA3C95C9A554}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDB24A67-B1C4-45AF-8FC1-FA3C95C9A554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDB24A67-B1C4-45AF-8FC1-FA3C95C9A554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDB24A67-B1C4-45AF-8FC1-FA3C95C9A554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDB24A67-B1C4-45AF-8FC1-FA3C95C9A554}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
