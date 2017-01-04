@@ -1,7 +1,6 @@
 E:\Code\myself\github\shiyousan.com-demo\2017\字符串相似度对比及匹配算法演示\字符串相似度对比及匹配算法演示\bin\Debug\字符串相似度对比及匹配算法演示.exe.config
 E:\Code\myself\github\shiyousan.com-demo\2017\字符串相似度对比及匹配算法演示\字符串相似度对比及匹配算法演示\bin\Debug\字符串相似度对比及匹配算法演示.exe
 E:\Code\myself\github\shiyousan.com-demo\2017\字符串相似度对比及匹配算法演示\字符串相似度对比及匹配算法演示\bin\Debug\字符串相似度对比及匹配算法演示.pdb
-E:\Code\myself\github\shiyousan.com-demo\2017\字符串相似度对比及匹配算法演示\字符串相似度对比及匹配算法演示\bin\Debug\FuzzyString.dll
 E:\Code\myself\github\shiyousan.com-demo\2017\字符串相似度对比及匹配算法演示\字符串相似度对比及匹配算法演示\obj\Debug\字符串相似度对比及匹配算法演示.csprojResolveAssemblyReference.cache
 E:\Code\myself\github\shiyousan.com-demo\2017\字符串相似度对比及匹配算法演示\字符串相似度对比及匹配算法演示\obj\Debug\字符串相似度对比及匹配算法演示.exe
 E:\Code\myself\github\shiyousan.com-demo\2017\字符串相似度对比及匹配算法演示\字符串相似度对比及匹配算法演示\obj\Debug\字符串相似度对比及匹配算法演示.pdb
