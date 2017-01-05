@@ -59,5 +59,6 @@ packages/
 # (and the packages folder if the line above has been uncommented)
 !packages/build/
 
+# bin and obj Directory
 bin/
 obj/
