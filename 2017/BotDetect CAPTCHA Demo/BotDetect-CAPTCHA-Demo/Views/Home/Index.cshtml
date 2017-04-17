@@ -1,0 +1,28 @@
+﻿@using BotDetect.Web.Mvc;
+@section styles{
+    @*<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />*@
+}
+<h1>@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl</h1>
+<div>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha");
+        exampleCaptcha.SoundEnabled = false;
+        <div>
+            @Html.Captcha(exampleCaptcha)
+        </div>
+        <br /><br /><br /><br /><br />
+        <div>
+            <label>验证码:</label>
+            @Html.TextBox("CaptchaCode")
+        </div>
+        @*<div>
+            <label>用户名:</label>
+            @Html.TextBox("msg")
+        </div>*@
+        <div>
+            <input type="submit" value="提交" />
+        </div>
+    }
+</div>
+@*<h1>@ViewBag.Msg</h1>*@
