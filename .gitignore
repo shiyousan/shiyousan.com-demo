@@ -62,3 +62,4 @@ packages/
 # bin and obj Directory
 bin/
 obj/
+*.suo
