@@ -22,15 +22,17 @@
         <div>
             <input type="submit" value="提交验证码" />
         </div>
-        <div style="color:#a94442;font-weight:700;">
+        <div>
             <label>错误信息：</label>
-            @Html.ValidationMessage("captchaCode")
+            <span style="color:#a94442;font-weight:700;">
+                @Html.ValidationMessage("captchaCode")
+            </span>
         </div>
         <div style="color:#8a6d3b;font-weight:700;margin-top:30px;">
             <label>注意事项，在验证码输入正确后会有如下情况：</label>
             <ol>
                 <li>如果之前验证码输入错误并显示错误信息，输入正确后会自动隐藏错误信息</li>
-                <li>验证码只要输入正确，验证结果会进行缓存，之后重新提交验证码会发现，就算输入错误也会成功通过，因为已经缓存了校验通过的记录。</li>
+                <li>验证码只要输入正确，验证结果会进行缓存，之后重新提交验证码会发现，就算输入错误也会成功通过，因为已经缓存了正确的记录。</li>
             </ol>
         </div>
     }
