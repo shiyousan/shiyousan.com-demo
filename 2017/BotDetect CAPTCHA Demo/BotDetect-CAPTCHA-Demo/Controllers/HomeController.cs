@@ -16,32 +16,23 @@ namespace BotDetect_CAPTCHA_Demo.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        [CaptchaValidation("CaptchaCode", "ExampleCaptcha", "验证码输入错误！！！")]
-        public ActionResult Index(string msg, string CaptchaCode)
+        [CaptchaValidation("captchaCode", "exampleCaptchaId", "验证码输入错误！！！")]
+        public ActionResult Index(string captchaCode)
         {
-            //ExampleCaptcha.SoundEnabled = false; 
-            
-            /*
-             (Option) CAPTCHA Validation Separate From Model State Validation
 
-If, for any reason, you want to check Captcha validity separately from ModelState, you can simply use an additional action parameter (which must be called captchaValid) and make the validation logic explicit
-public ActionResult ExampleAction(ExampleModel model, bool captchaValid)
-{
-    if (captchaValid)
-    {
-    
-        […]
-             */
-            //if (!ModelState.IsValid)
-            //{
-            //    // TODO: Captcha validation failed, show error message      
-            //    ViewBag.Msg = CaptchaCode;
-            //}
-            //else
-            //{
-            //    // TODO: Captcha validation passed, proceed with protected action  
-            //    ViewBag.Msg = msg;
-            //}
+            if (ModelState.IsValid)
+            {
+                //验证码验证成功
+                //如果之前验证码输入错误并显示信息，会自动隐藏错误信息
+                //注意：验证码只要输入正确，结果会进行缓存
+                //之后重复提交验证码会发现就算输入错误也会成功通过，因为已经缓存了通过的结果
+            }
+            else
+            {
+                //验证码验证失败
+                //视图界面需要调用@Html.ValidationMessage("对应输入框name")，才能显示属性中定义的错误信息
+                //或者自己做处理
+            }
 
             return View();
         }
