@@ -63,4 +63,7 @@ packages/
 bin/
 obj/
 *.suo
+<<<<<<< HEAD
 *v15/.suo
+=======
+>>>>>>> origin/master
