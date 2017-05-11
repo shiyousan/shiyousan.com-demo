@@ -62,6 +62,7 @@ packages/
 # bin and obj Directory
 bin/
 obj/
+v15/
 *.suo
 <<<<<<< HEAD
 *v15/.suo
