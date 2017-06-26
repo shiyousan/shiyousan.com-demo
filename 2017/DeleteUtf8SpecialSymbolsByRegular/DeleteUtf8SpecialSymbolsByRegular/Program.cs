@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace 正则删除UTF8特殊符号
+namespace DeleteUtf8SpecialSymbolsByRegular
 {
     class Program
     {

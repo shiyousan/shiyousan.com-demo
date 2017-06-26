@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{74215F20-C8A1-47B1-A19D-A4254A262764}</ProjectGuid>
+    <ProjectGuid>{A3DA78AC-B1CB-45B2-A6DE-517682602D3F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>正则删除UTF8特殊符号</RootNamespace>
-    <AssemblyName>正则删除UTF8特殊符号</AssemblyName>
+    <RootNamespace>DeleteUtf8SpecialSymbolsByRegular</RootNamespace>
+    <AssemblyName>DeleteUtf8SpecialSymbolsByRegular</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
