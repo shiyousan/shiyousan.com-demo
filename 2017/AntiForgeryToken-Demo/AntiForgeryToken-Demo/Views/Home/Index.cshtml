@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "shiyousan.com";
+}
+
+<div class="row">
+    <div class="col-xs-12">        
+        @if (User.Identity.IsAuthenticated)
+        {
+            <h1>用户[<span>@User.Identity.Name</span>]已登录</h1>
+        }
+        else
+        {
+            <h1>当前尚未有用户登录</h1>
+        }
+    </div>
+    <div class="col-md-4">        
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
