@@ -54,8 +54,17 @@ namespace AntiForgeryToken_Demo.Controllers
         public ActionResult SignOut()
         {
             FormsAuthentication.SignOut();
-            return Redirect("/Home/Index");
+            return View("Login");
+            //return Redirect("/Home/Index");
         }
 
+        public ActionResult RefreshToken()
+        {
+            Request.IsSecureConnection
+            //Request.IsSecureConnection
+            //return PartialView();
+            var tokenHtml = System.Web.Helpers.AntiForgery.GetHtml().ToString();
+            return Content(tokenHtml);
+        }
     }
 }

@@ -3,20 +3,98 @@
 }
 
 <div class="row">
-    <div class="col-xs-12">        
-        @if (User.Identity.IsAuthenticated)
-        {
-            <h1>用户[<span>@User.Identity.Name</span>]已登录</h1>
+    @*<div class="col-xs-12">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <h2>用户[<span>@User.Identity.Name</span>]已登录</h2>
+            }
+            else
+            {
+                <h2>当前尚未有用户登录</h2>
+            }
+        </div>*@
+    <div class="col-md-12">
+        <h2 class="text-primary">提交表单以验证防伪标识</h2>
+@*@using (Html.BeginForm("TokenTest", "Home", FormMethod.Post, new { id = "formLogin" }))
+{
+    <div id="divAntiForgeryToken">@Html.AntiForgeryToken()</div>
+    //此处省略其他表单代码
+    <input type="submit" value="提交" />
+}*@
+        @using (Html.BeginForm("TokenTest", "Home", FormMethod.Post, new { id = "formLogin" }))
+        {           
+            <div id="divAntiForgeryToken">@Html.AntiForgeryToken()</div>
+            <div class="form-group">
+                <label>提交的内容：</label>
+                <input type="text" class="form-control" value="@(ViewBag.Msg??"测试信息")" name="msg" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="提交" class="btn btn-primary btn-lg btn-block" />
+            </div>
         }
-        else
-        {
-            <h1>当前尚未有用户登录</h1>
-        }
-    </div>
-    <div class="col-md-4">        
-    </div>
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12">
+        <p class="bg-info text-info">
+            FormToken令牌值：<span id="spanFormToken"></span>
+        </p>
+        <p class="bg-info text-info">
+            <span>Cookie令牌值：</span><span>@ViewBag.CookieToken</span>
+        </p>
+        <p class="bg-info text-info">
+            <span>提交的信息为：</span><span>@ViewBag.Msg</span>
+        </p>
+    </div>
+</div>
+<div>
+
+@{
+    string htmlString = "<lable style=\"color:#ff0000\">十有三博客</label>";
+    MvcHtmlString mhs = new MvcHtmlString(htmlString);
+}
+<ol>
+    <li>@htmlString</li>
+    <li>@mhs</li>
+    <li>@Html.Raw(htmlString)</li>
+    <li>@HttpUtility.HtmlEncode(htmlString)</li>    
+</ol>
+
+    <p>@htmlString</p>
+    <p>@mhs</p>
+
+    <p>@Html.Raw(htmlString)</p>
+    <p>@HttpUtility.HtmlEncode(htmlString)</p>
+    <p>@HttpUtility.HtmlDecode(htmlString)</p>
+
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#spanFormToken").text($("input[name='__RequestVerificationToken']").val())
+        });
+        $(function () {
+            $('#formLogin').submit(function () {
+                //注意引用jQuery库
+                //一定不能使用异步！async要设置成false
+                //$.ajax({
+                //    url: '/Home/RefreshToken', async: false, type: 'GET', success: function (data) {
+                //        //方法一直接更新HTML代码
+                //        $("#divAntiForgeryToken").empty().append(data);
+                //        //方法二替换隐藏字段值
+                //        //var tokenValue = $('<div />').html(data).find('input[type="hidden"]').val();
+                //        //$('input[name="__RequestVerificationToken"]').val(tokenValue);
+                //    }
+                //});
+
+$.ajax({
+    url: '/Home/RefreshToken', async: false, type: 'GET', success: function (data) {
+        $('input[name="__RequestVerificationToken"]').val(data);
+        $("#spanFormToken").text(data);
+        return false;
+    }
+});
+            });
+        });
+    </script>
+}

@@ -23,6 +23,17 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("主页", "Index", "Home")</li>                                      
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a>@User.Identity.Name</a></li>                        
+                        <li><a href="/Account/SignOut">注销</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Account/Login">登录</a></li>
+                    }
+                </ul>
             </div>
         </div>
     </div>

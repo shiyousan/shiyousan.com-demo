@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+</head>
+<body>
+    <div> 
+        <textarea class="form-control" name="ArticleContent" id="txtArticleContent" cols="10" rows="10">                
+            </textarea>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">           
+        $(function () {
+            CKEDITOR.replace("txtArticleContent", { height: "400px", width: "99%", extraPlugins: "codesnippet", codeSnippet_theme:"agate"});
+        });
+     </script>
+</body>
+</html>
