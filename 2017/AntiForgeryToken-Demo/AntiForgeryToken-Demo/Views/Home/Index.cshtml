@@ -87,13 +87,13 @@
                 //    }
                 //});
 
-$.ajax({
-    url: '/Home/RefreshToken', async: false, type: 'GET', success: function (data) {
-        $('input[name="__RequestVerificationToken"]').val(data);
-        $("#spanFormToken").text(data);
-        return false;
-    }
-});
+//$.ajax({
+//    url: '/Home/RefreshToken', async: false, type: 'GET', success: function (data) {
+//        $('input[name="__RequestVerificationToken"]').val(data);
+//        $("#spanFormToken").text(data);
+//        return false;
+//    }
+//});
             });
         });
     </script>

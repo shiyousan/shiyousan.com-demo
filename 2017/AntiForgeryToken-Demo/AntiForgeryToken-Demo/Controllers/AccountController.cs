@@ -35,7 +35,7 @@ namespace AntiForgeryToken_Demo.Controllers
         public ActionResult Login(string ReturnUrl, string UserName ="test")
         {        
             FormsAuthentication.SetAuthCookie(UserName , true);
-
+            //return View("Login");
             //防止欺诈跳转
             if (!Url.IsLocalUrl(ReturnUrl))
             {
@@ -44,7 +44,7 @@ namespace AntiForgeryToken_Demo.Controllers
             else
             {
                 return Redirect(ReturnUrl);
-            }            
+            }
         }
 
         /// <summary>
@@ -52,15 +52,17 @@ namespace AntiForgeryToken_Demo.Controllers
         /// </summary>
         /// <returns></returns>
         public ActionResult SignOut()
-        {
+        {            
             FormsAuthentication.SignOut();
-            return View("Login");
-            //return Redirect("/Home/Index");
+            //return View("Login");
+            return Redirect("/Home/Index");
+            //HttpContext.User = new System.Security.Principal.GenericPrincipal(new System.Security.Principal.GenericIdentity(string.Empty), null);
+            //return View("Login");
         }
 
         public ActionResult RefreshToken()
         {
-            Request.IsSecureConnection
+            //Request.IsSecureConnection
             //Request.IsSecureConnection
             //return PartialView();
             var tokenHtml = System.Web.Helpers.AntiForgery.GetHtml().ToString();

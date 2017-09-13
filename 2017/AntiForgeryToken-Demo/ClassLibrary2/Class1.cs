@@ -12,12 +12,14 @@ namespace ClassLibrary2
         /// 附加数据？类似于验证码的噪点？
         /// 这里是我自己的推测
         /// </summary>
-        public string AdditionalData;        
-        
-        
+        public string AdditionalData;
+
+
         /// <summary>
         /// 用户名
         /// </summary>
         public string Username;
     }
+
+    
 }
