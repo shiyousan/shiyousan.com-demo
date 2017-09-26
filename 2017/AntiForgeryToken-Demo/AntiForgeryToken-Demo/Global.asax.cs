@@ -23,6 +23,19 @@ namespace AntiForgeryToken_Demo
             //EndRequest += MvcApplication_EndRequest;
         }
 
+        //protected void Application_BeginRequest(object sender, EventArgs e)
+        //{            
+        //    if (Context.User != null)
+        //    {
+        //        var id = Context.User.Identity as FormsIdentity;
+        //        if (id != null && id.IsAuthenticated)
+        //        {
+        //            //    var roles = id.Ticket.UserData.Split(',').Select(m => HttpUtility.UrlDecode(m)).ToArray();
+        //            //    Context.User = new GenericPrincipal(id, roles);
+        //        }
+        //    }
+        //}
+
         private void MvcApplication_BeginRequest(object sender, EventArgs e)
         {
             if (Context.User != null)
@@ -43,6 +56,8 @@ namespace AntiForgeryToken_Demo
                 var id = Context.User.Identity as FormsIdentity;
                 if (id != null && id.IsAuthenticated)
                 {
+                    //id.Name
+                    //
                     //    var roles = id.Ticket.UserData.Split(',').Select(m => HttpUtility.UrlDecode(m)).ToArray();
                     //    Context.User = new GenericPrincipal(id, roles);
                 }
@@ -52,6 +67,7 @@ namespace AntiForgeryToken_Demo
         {
             if (Context.User != null)
             {
+                var TESET=Context.Request.IsAuthenticated;
                 var id = Context.User.Identity as FormsIdentity;
                 if (id != null && id.IsAuthenticated)
                 {
@@ -62,7 +78,7 @@ namespace AntiForgeryToken_Demo
         }
 
         void MvcApplication_AuthorizeRequest(object sender, EventArgs e)
-        {
+        {            
             var id = Context.User.Identity as FormsIdentity;
             if (id != null && id.IsAuthenticated)
             {

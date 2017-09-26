@@ -51,12 +51,18 @@ namespace AntiForgeryToken_Demo.Controllers
         /// 账号注销
         /// </summary>
         /// <returns></returns>
+        [HttpPost]
         public ActionResult SignOut()
-        {            
+        {                                   
             FormsAuthentication.SignOut();
-            //return View("Login");
-            return Redirect("/Home/Index");
-            //HttpContext.User = new System.Security.Principal.GenericPrincipal(new System.Security.Principal.GenericIdentity(string.Empty), null);
+            //方法一
+            return Redirect("/Login");
+            //方法二，需要在配置文件设置默认登录页面
+            //FormsAuthentication.RedirectToLoginPage();
+            //return null;            
+            //方法三
+            //return Redirect("/Home/Index");            
+            //HttpContext.User = new System.Security.Principal.GenericPrincipal(new System.Security.Principal.GenericIdentity(string.Empty), null);            
             //return View("Login");
         }
 
